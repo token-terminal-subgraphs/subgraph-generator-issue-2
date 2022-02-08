@@ -1,0 +1,374 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: MANATokenV1
+    network: matic
+    source:
+      address: "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4"
+      abi: MANATokenABI
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ManatokenV1proxyownerupdateV1E
+        - ManatokenV1proxyupdatedV1E
+      abis:
+        - name: MANATokenABI
+          file: ./abis/MANATokenABI.json
+      eventHandlers:
+        - event: ProxyOwnerUpdate(address,address)
+          handler: handleMANATokenV1ProxyOwnerUpdateV1Event
+        - event: ProxyUpdated(indexed address,indexed address)
+          handler: handleMANATokenV1ProxyUpdatedV1Event
+      callHandlers: []
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: CollectionManagerV1
+    network: matic
+    source:
+      address: "0x9D32AaC179153A991e832550d9F96441Ea27763A"
+      abi: CollectionManagerABI
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CollectionmanagerV1acceptedtokensetV1E
+        - CollectionmanagerV1committeemethodsetV1E
+        - CollectionmanagerV1committeesetV1E
+        - CollectionmanagerV1feescollectorsetV1E
+        - CollectionmanagerV1metatransactiexecutedV1E
+        - CollectionmanagerV1ownershiptransferredV1E
+        - CollectionmanagerV1raritiessetV1E
+      abis:
+        - name: CollectionManagerABI
+          file: ./abis/CollectionManagerABI.json
+      eventHandlers:
+        - event: AcceptedTokenSet(indexed address,indexed address)
+          handler: handleCollectionManagerV1AcceptedTokenSetV1Event
+        - event: CommitteeMethodSet(indexed bytes4,bool)
+          handler: handleCollectionManagerV1CommitteeMethodSetV1Event
+        - event: CommitteeSet(indexed address,indexed address)
+          handler: handleCollectionManagerV1CommitteeSetV1Event
+        - event: FeesCollectorSet(indexed address,indexed address)
+          handler: handleCollectionManagerV1FeesCollectorSetV1Event
+        - event: MetaTransactionExecuted(address,address,bytes)
+          handler: handleCollectionManagerV1MetaTransactionExecutedV1Event
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleCollectionManagerV1OwnershipTransferredV1Event
+        - event: RaritiesSet(indexed address,indexed address)
+          handler: handleCollectionManagerV1RaritiesSetV1Event
+      callHandlers: []
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: MarketplaceV1
+    network: matic
+    source:
+      address: "0x02080031b45A3c67d338Dd4A2CC309D28756A160"
+      abi: MarketplaceABI
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - MarketplaceV1chanfeescollcutpermilV1E
+        - MarketplaceV1changedpublicationfeeV1E
+        - MarketplaceV1changroyalcutpermilliV1E
+        - MarketplaceV1feescollectorsetV1E
+        - MarketplaceV1metatransactiexecutedV1E
+        - MarketplaceV1ordercancelledV1E
+        - MarketplaceV1ordercreatedV1E
+        - MarketplaceV1ordersuccessfulV1E
+        - MarketplaceV1ownershiptransferredV1E
+        - MarketplaceV1pausedV1E
+        - MarketplaceV1royaltiesmanagersetV1E
+        - MarketplaceV1unpausedV1E
+        - MarketplaceV1changownercutpermilliV1E
+      abis:
+        - name: MarketplaceABI
+          file: ./abis/MarketplaceABI.json
+      eventHandlers:
+        - event: ChangedFeesCollectorCutPerMillion(uint256)
+          handler: handleMarketplaceV1ChangedFeesCollectorCutPerMillionV1Event
+        - event: ChangedPublicationFee(uint256)
+          handler: handleMarketplaceV1ChangedPublicationFeeV1Event
+        - event: ChangedRoyaltiesCutPerMillion(uint256)
+          handler: handleMarketplaceV1ChangedRoyaltiesCutPerMillionV1Event
+        - event: FeesCollectorSet(indexed address,indexed address)
+          handler: handleMarketplaceV1FeesCollectorSetV1Event
+        - event: MetaTransactionExecuted(address,address,bytes)
+          handler: handleMarketplaceV1MetaTransactionExecutedV1Event
+        - event: OrderCancelled(bytes32,indexed uint256,indexed address,address)
+          handler: handleMarketplaceV1OrderCancelledV1Event
+        - event: OrderCreated(bytes32,indexed uint256,indexed address,address,uint256,uint256)
+          handler: handleMarketplaceV1OrderCreatedV1Event
+        - event: OrderSuccessful(bytes32,indexed uint256,indexed address,address,uint256,indexed address)
+          handler: handleMarketplaceV1OrderSuccessfulV1Event
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleMarketplaceV1OwnershipTransferredV1Event
+        - event: Paused(address)
+          handler: handleMarketplaceV1PausedV1Event
+        - event: RoyaltiesManagerSet(indexed address,indexed address)
+          handler: handleMarketplaceV1RoyaltiesManagerSetV1Event
+        - event: Unpaused(address)
+          handler: handleMarketplaceV1UnpausedV1Event
+        - event: ChangedOwnerCutPerMillion(uint256)
+          handler: handleMarketplaceV1ChangedOwnerCutPerMillionV1Event
+      callHandlers: []
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: MarketplaceV2V1
+    network: matic
+    source:
+      address: "0x480a0f4e360E8964e68858Dd231c2922f1df45Ef"
+      abi: MarketplaceV2ABI
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Marketplacev2V1chanfeescollcutpermilV1E
+        - Marketplacev2V1changedpublicationfeeV1E
+        - Marketplacev2V1changroyalcutpermilliV1E
+        - Marketplacev2V1feescollectorsetV1E
+        - Marketplacev2V1metatransactiexecutedV1E
+        - Marketplacev2V1ordercancelledV1E
+        - Marketplacev2V1ordercreatedV1E
+        - Marketplacev2V1ordersuccessfulV1E
+        - Marketplacev2V1ownershiptransferredV1E
+        - Marketplacev2V1pausedV1E
+        - Marketplacev2V1royaltiesmanagersetV1E
+        - Marketplacev2V1unpausedV1E
+      abis:
+        - name: MarketplaceV2ABI
+          file: ./abis/MarketplaceV2ABI.json
+      eventHandlers:
+        - event: ChangedFeesCollectorCutPerMillion(uint256)
+          handler: handleMarketplaceV2V1ChangedFeesCollectorCutPerMillionV1Event
+        - event: ChangedPublicationFee(uint256)
+          handler: handleMarketplaceV2V1ChangedPublicationFeeV1Event
+        - event: ChangedRoyaltiesCutPerMillion(uint256)
+          handler: handleMarketplaceV2V1ChangedRoyaltiesCutPerMillionV1Event
+        - event: FeesCollectorSet(indexed address,indexed address)
+          handler: handleMarketplaceV2V1FeesCollectorSetV1Event
+        - event: MetaTransactionExecuted(address,address,bytes)
+          handler: handleMarketplaceV2V1MetaTransactionExecutedV1Event
+        - event: OrderCancelled(bytes32,indexed uint256,indexed address,address)
+          handler: handleMarketplaceV2V1OrderCancelledV1Event
+        - event: OrderCreated(bytes32,indexed uint256,indexed address,address,uint256,uint256)
+          handler: handleMarketplaceV2V1OrderCreatedV1Event
+        - event: OrderSuccessful(bytes32,indexed uint256,indexed address,address,uint256,indexed address)
+          handler: handleMarketplaceV2V1OrderSuccessfulV1Event
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleMarketplaceV2V1OwnershipTransferredV1Event
+        - event: Paused(address)
+          handler: handleMarketplaceV2V1PausedV1Event
+        - event: RoyaltiesManagerSet(indexed address,indexed address)
+          handler: handleMarketplaceV2V1RoyaltiesManagerSetV1Event
+        - event: Unpaused(address)
+          handler: handleMarketplaceV2V1UnpausedV1Event
+      callHandlers: []
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: CollectionFactoryV1
+    network: matic
+    source:
+      address: "0xB549B2442b2BD0a53795BC5cDcBFE0cAF7ACA9f8"
+      abi: CollectionFactoryABI
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CollectionfactoryV1implementationsetV1E
+        - CollectionfactoryV1ownershiptransferredV1E
+        - CollectionfactoryV1proxycreatedV1E
+      abis:
+        - name: CollectionFactoryABI
+          file: ./abis/CollectionFactoryABI.json
+      eventHandlers:
+        - event: ImplementationSet(indexed address,bytes32,bytes)
+          handler: handleCollectionFactoryV1ImplementationSetV1Event
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleCollectionFactoryV1OwnershipTransferredV1Event
+        - event: ProxyCreated(indexed address,bytes32)
+          handler: handleCollectionFactoryV1ProxyCreatedV1Event
+      callHandlers: []
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: CollectionStoreV1
+    network: matic
+    source:
+      address: "0x214ffC0f0103735728dc66b61A22e4F163e275ae"
+      abi: CollectionStoreABI
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CollectionstoreV1boughtV1E
+        - CollectionstoreV1metatransactiexecutedV1E
+        - CollectionstoreV1ownershiptransferredV1E
+        - CollectionstoreV1setfeeV1E
+        - CollectionstoreV1setfeeownerV1E
+      abis:
+        - name: CollectionStoreABI
+          file: ./abis/CollectionStoreABI.json
+      eventHandlers:
+        - event: Bought((address,uint256[],uint256[],address[])[])
+          handler: handleCollectionStoreV1BoughtV1Event
+        - event: MetaTransactionExecuted(address,address,bytes)
+          handler: handleCollectionStoreV1MetaTransactionExecutedV1Event
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleCollectionStoreV1OwnershipTransferredV1Event
+        - event: SetFee(uint256,uint256)
+          handler: handleCollectionStoreV1SetFeeV1Event
+        - event: SetFeeOwner(indexed address,indexed address)
+          handler: handleCollectionStoreV1SetFeeOwnerV1Event
+      callHandlers: []
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: CollectionImplementationV1
+    network: matic
+    source:
+      address: "0x006080C6061C4aF79b39Da0842a3a22A7b3f185e"
+      abi: CollectionImplementationABI
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CollectionimplementationV1additemV1E
+        - CollectionimplementationV1approvalV1E
+        - CollectionimplementationV1approvalforallV1E
+        - CollectionimplementationV1baseuriV1E
+        - CollectionimplementationV1completeV1E
+        - CollectionimplementationV1creatorshiptransferreV1E
+        - CollectionimplementationV1issueV1E
+        - CollectionimplementationV1metatransactiexecutedV1E
+        - CollectionimplementationV1ownershiptransferredV1E
+        - CollectionimplementationV1rescueitemV1E
+        - CollectionimplementationV1setapprovedV1E
+        - CollectionimplementationV1seteditableV1E
+        - CollectionimplementationV1setglobalmanagerV1E
+        - CollectionimplementationV1setglobalminterV1E
+        - CollectionimplementationV1setitemmanagerV1E
+        - CollectionimplementationV1setitemminterV1E
+        - CollectionimplementationV1transferV1E
+        - CollectionimplementationV1updateitemdataV1E
+      abis:
+        - name: CollectionImplementationABI
+          file: ./abis/CollectionImplementationABI.json
+      eventHandlers:
+        - event: AddItem(indexed uint256,(string,uint256,uint256,uint256,address,string,string))
+          handler: handleCollectionImplementationV1AddItemV1Event
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleCollectionImplementationV1ApprovalV1Event
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleCollectionImplementationV1ApprovalForAllV1Event
+        - event: BaseURI(string,string)
+          handler: handleCollectionImplementationV1BaseURIV1Event
+        - event: Complete()
+          handler: handleCollectionImplementationV1CompleteV1Event
+        - event: CreatorshipTransferred(indexed address,indexed address)
+          handler: handleCollectionImplementationV1CreatorshipTransferredV1Event
+        - event: Issue(indexed address,indexed uint256,indexed uint256,uint256,address)
+          handler: handleCollectionImplementationV1IssueV1Event
+        - event: MetaTransactionExecuted(address,address,bytes)
+          handler: handleCollectionImplementationV1MetaTransactionExecutedV1Event
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleCollectionImplementationV1OwnershipTransferredV1Event
+        - event: RescueItem(indexed uint256,string,string)
+          handler: handleCollectionImplementationV1RescueItemV1Event
+        - event: SetApproved(bool,bool)
+          handler: handleCollectionImplementationV1SetApprovedV1Event
+        - event: SetEditable(bool,bool)
+          handler: handleCollectionImplementationV1SetEditableV1Event
+        - event: SetGlobalManager(indexed address,bool)
+          handler: handleCollectionImplementationV1SetGlobalManagerV1Event
+        - event: SetGlobalMinter(indexed address,bool)
+          handler: handleCollectionImplementationV1SetGlobalMinterV1Event
+        - event: SetItemManager(indexed uint256,indexed address,bool)
+          handler: handleCollectionImplementationV1SetItemManagerV1Event
+        - event: SetItemMinter(indexed uint256,indexed address,uint256)
+          handler: handleCollectionImplementationV1SetItemMinterV1Event
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleCollectionImplementationV1TransferV1Event
+        - event: UpdateItemData(indexed uint256,uint256,address,string)
+          handler: handleCollectionImplementationV1UpdateItemDataV1Event
+      callHandlers: []
+      file: ./src/mapping.ts
+templates:
+  - kind: ethereum/contract
+    name: ERC721CollectionV2V1
+    network: matic
+    source:
+      abi: ERC721CollectionV2ABI
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Erc721collectionv2V1additemV1E
+        - Erc721collectionv2V1approvalV1E
+        - Erc721collectionv2V1approvalforallV1E
+        - Erc721collectionv2V1baseuriV1E
+        - Erc721collectionv2V1completeV1E
+        - Erc721collectionv2V1creatorshiptransferreV1E
+        - Erc721collectionv2V1issueV1E
+        - Erc721collectionv2V1metatransactiexecutedV1E
+        - Erc721collectionv2V1ownershiptransferredV1E
+        - Erc721collectionv2V1rescueitemV1E
+        - Erc721collectionv2V1setapprovedV1E
+        - Erc721collectionv2V1seteditableV1E
+        - Erc721collectionv2V1setglobalmanagerV1E
+        - Erc721collectionv2V1setglobalminterV1E
+        - Erc721collectionv2V1setitemmanagerV1E
+        - Erc721collectionv2V1setitemminterV1E
+        - Erc721collectionv2V1transferV1E
+        - Erc721collectionv2V1updateitemdataV1E
+      abis:
+        - name: ERC721CollectionV2ABI
+          file: ./abis/ERC721CollectionV2ABI.json
+      eventHandlers:
+        - event: AddItem(indexed uint256,(string,uint256,uint256,uint256,address,string,string))
+          handler: handleERC721CollectionV2V1AddItemV1Event
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleERC721CollectionV2V1ApprovalV1Event
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleERC721CollectionV2V1ApprovalForAllV1Event
+        - event: BaseURI(string,string)
+          handler: handleERC721CollectionV2V1BaseURIV1Event
+        - event: Complete()
+          handler: handleERC721CollectionV2V1CompleteV1Event
+        - event: CreatorshipTransferred(indexed address,indexed address)
+          handler: handleERC721CollectionV2V1CreatorshipTransferredV1Event
+        - event: Issue(indexed address,indexed uint256,indexed uint256,uint256,address)
+          handler: handleERC721CollectionV2V1IssueV1Event
+        - event: MetaTransactionExecuted(address,address,bytes)
+          handler: handleERC721CollectionV2V1MetaTransactionExecutedV1Event
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleERC721CollectionV2V1OwnershipTransferredV1Event
+        - event: RescueItem(indexed uint256,string,string)
+          handler: handleERC721CollectionV2V1RescueItemV1Event
+        - event: SetApproved(bool,bool)
+          handler: handleERC721CollectionV2V1SetApprovedV1Event
+        - event: SetEditable(bool,bool)
+          handler: handleERC721CollectionV2V1SetEditableV1Event
+        - event: SetGlobalManager(indexed address,bool)
+          handler: handleERC721CollectionV2V1SetGlobalManagerV1Event
+        - event: SetGlobalMinter(indexed address,bool)
+          handler: handleERC721CollectionV2V1SetGlobalMinterV1Event
+        - event: SetItemManager(indexed uint256,indexed address,bool)
+          handler: handleERC721CollectionV2V1SetItemManagerV1Event
+        - event: SetItemMinter(indexed uint256,indexed address,uint256)
+          handler: handleERC721CollectionV2V1SetItemMinterV1Event
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleERC721CollectionV2V1TransferV1Event
+        - event: UpdateItemData(indexed uint256,uint256,address,string)
+          handler: handleERC721CollectionV2V1UpdateItemDataV1Event
+      callHandlers: []
+      file: ./src/mapping.ts

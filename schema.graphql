@@ -1,0 +1,1137 @@
+type ManatokenV1proxyownerupdateV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__new: Bytes!
+  in__old: Bytes!
+}
+
+type ManatokenV1proxyupdatedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__new: Bytes!
+  in__old: Bytes!
+}
+
+type CollectionmanagerV1acceptedtokensetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__oldAcceptedToken: Bytes!
+  in__newAcceptedToken: Bytes!
+}
+
+type CollectionmanagerV1committeemethodsetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__method: Bytes!
+  in__isAllowed: Boolean!
+}
+
+type CollectionmanagerV1committeesetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__oldCommittee: Bytes!
+  in__newCommittee: Bytes!
+}
+
+type CollectionmanagerV1feescollectorsetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__oldFeesCollector: Bytes!
+  in__newFeesCollector: Bytes!
+}
+
+type CollectionmanagerV1metatransactiexecutedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_userAddress: Bytes!
+  in_relayerAddress: Bytes!
+  in_functionSignature: Bytes!
+}
+
+type CollectionmanagerV1ownershiptransferredV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_previousOwner: Bytes!
+  in_newOwner: Bytes!
+}
+
+type CollectionmanagerV1raritiessetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__oldRarities: Bytes!
+  in__newRarities: Bytes!
+}
+
+type MarketplaceV1chanfeescollcutpermilV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_feesCollectorCutPerMillion: BigInt!
+}
+
+type MarketplaceV1changedpublicationfeeV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_publicationFee: BigInt!
+}
+
+type MarketplaceV1changroyalcutpermilliV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_royaltiesCutPerMillion: BigInt!
+}
+
+type MarketplaceV1feescollectorsetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_oldFeesCollector: Bytes!
+  in_newFeesCollector: Bytes!
+}
+
+type MarketplaceV1metatransactiexecutedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_userAddress: Bytes!
+  in_relayerAddress: Bytes!
+  in_functionSignature: Bytes!
+}
+
+type MarketplaceV1ordercancelledV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_id: Bytes!
+  in_assetId: BigInt!
+  in_seller: Bytes!
+  in_nftAddress: Bytes!
+}
+
+type MarketplaceV1ordercreatedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_id: Bytes!
+  in_assetId: BigInt!
+  in_seller: Bytes!
+  in_nftAddress: Bytes!
+  in_priceInWei: BigInt!
+  in_expiresAt: BigInt!
+}
+
+type MarketplaceV1ordersuccessfulV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_id: Bytes!
+  in_assetId: BigInt!
+  in_seller: Bytes!
+  in_nftAddress: Bytes!
+  in_totalPrice: BigInt!
+  in_buyer: Bytes!
+}
+
+type MarketplaceV1ownershiptransferredV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_previousOwner: Bytes!
+  in_newOwner: Bytes!
+}
+
+type MarketplaceV1pausedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_account: Bytes!
+}
+
+type MarketplaceV1royaltiesmanagersetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_oldRoyaltiesManager: Bytes!
+  in_newRoyaltiesManager: Bytes!
+}
+
+type MarketplaceV1unpausedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_account: Bytes!
+}
+
+type MarketplaceV1changownercutpermilliV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_ownerCutPerMillion: BigInt!
+}
+
+type Marketplacev2V1chanfeescollcutpermilV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_feesCollectorCutPerMillion: BigInt!
+}
+
+type Marketplacev2V1changedpublicationfeeV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_publicationFee: BigInt!
+}
+
+type Marketplacev2V1changroyalcutpermilliV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_royaltiesCutPerMillion: BigInt!
+}
+
+type Marketplacev2V1feescollectorsetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_oldFeesCollector: Bytes!
+  in_newFeesCollector: Bytes!
+}
+
+type Marketplacev2V1metatransactiexecutedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_userAddress: Bytes!
+  in_relayerAddress: Bytes!
+  in_functionSignature: Bytes!
+}
+
+type Marketplacev2V1ordercancelledV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_id: Bytes!
+  in_assetId: BigInt!
+  in_seller: Bytes!
+  in_nftAddress: Bytes!
+}
+
+type Marketplacev2V1ordercreatedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_id: Bytes!
+  in_assetId: BigInt!
+  in_seller: Bytes!
+  in_nftAddress: Bytes!
+  in_priceInWei: BigInt!
+  in_expiresAt: BigInt!
+}
+
+type Marketplacev2V1ordersuccessfulV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_id: Bytes!
+  in_assetId: BigInt!
+  in_seller: Bytes!
+  in_nftAddress: Bytes!
+  in_totalPrice: BigInt!
+  in_buyer: Bytes!
+}
+
+type Marketplacev2V1ownershiptransferredV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_previousOwner: Bytes!
+  in_newOwner: Bytes!
+}
+
+type Marketplacev2V1pausedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_account: Bytes!
+}
+
+type Marketplacev2V1royaltiesmanagersetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_oldRoyaltiesManager: Bytes!
+  in_newRoyaltiesManager: Bytes!
+}
+
+type Marketplacev2V1unpausedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_account: Bytes!
+}
+
+type CollectionfactoryV1implementationsetV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__implementation: Bytes!
+  in__codeHash: Bytes!
+  in__code: Bytes!
+}
+
+type CollectionfactoryV1ownershiptransferredV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_previousOwner: Bytes!
+  in_newOwner: Bytes!
+}
+
+type CollectionfactoryV1proxycreatedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__address: Bytes!
+  in__salt: Bytes!
+}
+
+type Erc721collectionv2V1additemV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__item_rarity: String!
+  in__item_maxSupply: BigInt!
+  in__item_totalSupply: BigInt!
+  in__item_price: BigInt!
+  in__item_beneficiary: Bytes!
+  in__item_metadata: String!
+  in__item_contentHash: String!
+}
+
+type Erc721collectionv2V1approvalV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_owner: Bytes!
+  in_approved: Bytes!
+  in_tokenId: BigInt!
+}
+
+type Erc721collectionv2V1approvalforallV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_owner: Bytes!
+  in_operator: Bytes!
+  in_approved: Boolean!
+}
+
+type Erc721collectionv2V1baseuriV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__oldBaseURI: String!
+  in__newBaseURI: String!
+}
+
+type Erc721collectionv2V1completeV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+}
+
+type Erc721collectionv2V1creatorshiptransferreV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__previousCreator: Bytes!
+  in__newCreator: Bytes!
+}
+
+type Erc721collectionv2V1issueV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__beneficiary: Bytes!
+  in__tokenId: BigInt!
+  in__itemId: BigInt!
+  in__issuedId: BigInt!
+  in__caller: Bytes!
+}
+
+type Erc721collectionv2V1metatransactiexecutedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_userAddress: Bytes!
+  in_relayerAddress: Bytes!
+  in_functionSignature: Bytes!
+}
+
+type Erc721collectionv2V1ownershiptransferredV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_previousOwner: Bytes!
+  in_newOwner: Bytes!
+}
+
+type Erc721collectionv2V1rescueitemV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__contentHash: String!
+  in__metadata: String!
+}
+
+type Erc721collectionv2V1setapprovedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__previousValue: Boolean!
+  in__newValue: Boolean!
+}
+
+type Erc721collectionv2V1seteditableV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__previousValue: Boolean!
+  in__newValue: Boolean!
+}
+
+type Erc721collectionv2V1setglobalmanagerV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__manager: Bytes!
+  in__value: Boolean!
+}
+
+type Erc721collectionv2V1setglobalminterV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__minter: Bytes!
+  in__value: Boolean!
+}
+
+type Erc721collectionv2V1setitemmanagerV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__manager: Bytes!
+  in__value: Boolean!
+}
+
+type Erc721collectionv2V1setitemminterV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__minter: Bytes!
+  in__value: BigInt!
+}
+
+type Erc721collectionv2V1transferV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_from: Bytes!
+  in_to: Bytes!
+  in_tokenId: BigInt!
+}
+
+type Erc721collectionv2V1updateitemdataV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__price: BigInt!
+  in__beneficiary: Bytes!
+  in__metadata: String!
+}
+
+type CollectionstoreV1boughtV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemsToBuy_collection: [Bytes!]
+  in__itemsToBuy_ids: [[BigInt!]]
+  in__itemsToBuy_prices: [[BigInt!]]
+  in__itemsToBuy_beneficiaries: [[Bytes!]]
+}
+
+type CollectionstoreV1metatransactiexecutedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_userAddress: Bytes!
+  in_relayerAddress: Bytes!
+  in_functionSignature: Bytes!
+}
+
+type CollectionstoreV1ownershiptransferredV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_previousOwner: Bytes!
+  in_newOwner: Bytes!
+}
+
+type CollectionstoreV1setfeeV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__oldFee: BigInt!
+  in__newFee: BigInt!
+}
+
+type CollectionstoreV1setfeeownerV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__oldFeeOwner: Bytes!
+  in__newFeeOwner: Bytes!
+}
+
+type CollectionimplementationV1additemV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__item_rarity: String!
+  in__item_maxSupply: BigInt!
+  in__item_totalSupply: BigInt!
+  in__item_price: BigInt!
+  in__item_beneficiary: Bytes!
+  in__item_metadata: String!
+  in__item_contentHash: String!
+}
+
+type CollectionimplementationV1approvalV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_owner: Bytes!
+  in_approved: Bytes!
+  in_tokenId: BigInt!
+}
+
+type CollectionimplementationV1approvalforallV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_owner: Bytes!
+  in_operator: Bytes!
+  in_approved: Boolean!
+}
+
+type CollectionimplementationV1baseuriV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__oldBaseURI: String!
+  in__newBaseURI: String!
+}
+
+type CollectionimplementationV1completeV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+}
+
+type CollectionimplementationV1creatorshiptransferreV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__previousCreator: Bytes!
+  in__newCreator: Bytes!
+}
+
+type CollectionimplementationV1issueV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__beneficiary: Bytes!
+  in__tokenId: BigInt!
+  in__itemId: BigInt!
+  in__issuedId: BigInt!
+  in__caller: Bytes!
+}
+
+type CollectionimplementationV1metatransactiexecutedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_userAddress: Bytes!
+  in_relayerAddress: Bytes!
+  in_functionSignature: Bytes!
+}
+
+type CollectionimplementationV1ownershiptransferredV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_previousOwner: Bytes!
+  in_newOwner: Bytes!
+}
+
+type CollectionimplementationV1rescueitemV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__contentHash: String!
+  in__metadata: String!
+}
+
+type CollectionimplementationV1setapprovedV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__previousValue: Boolean!
+  in__newValue: Boolean!
+}
+
+type CollectionimplementationV1seteditableV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__previousValue: Boolean!
+  in__newValue: Boolean!
+}
+
+type CollectionimplementationV1setglobalmanagerV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__manager: Bytes!
+  in__value: Boolean!
+}
+
+type CollectionimplementationV1setglobalminterV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__minter: Bytes!
+  in__value: Boolean!
+}
+
+type CollectionimplementationV1setitemmanagerV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__manager: Bytes!
+  in__value: Boolean!
+}
+
+type CollectionimplementationV1setitemminterV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__minter: Bytes!
+  in__value: BigInt!
+}
+
+type CollectionimplementationV1transferV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in_from: Bytes!
+  in_to: Bytes!
+  in_tokenId: BigInt!
+}
+
+type CollectionimplementationV1updateitemdataV1E @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionIndex: BigInt!
+
+  address: Bytes!
+  logIndex: BigInt!
+
+  in__itemId: BigInt!
+  in__price: BigInt!
+  in__beneficiary: Bytes!
+  in__metadata: String!
+}

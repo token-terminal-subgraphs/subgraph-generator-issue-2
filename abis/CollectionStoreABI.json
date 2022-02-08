@@ -1,0 +1,385 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_acceptedToken",
+        "type": "address",
+        "internalType": "contract IERC20"
+      },
+      {
+        "name": "_feeOwner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_fee",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": false,
+    "name": "Bought",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "_itemsToBuy",
+        "type": "tuple[]",
+        "internalType": "struct CollectionStore.ItemToBuy[]",
+        "indexed": false,
+        "components": [
+          {
+            "name": "collection",
+            "type": "address"
+          },
+          {
+            "name": "ids",
+            "type": "uint256[]"
+          },
+          {
+            "name": "prices",
+            "type": "uint256[]"
+          },
+          {
+            "name": "beneficiaries",
+            "type": "address[]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "MetaTransactionExecuted",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "userAddress",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      },
+      {
+        "name": "relayerAddress",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      },
+      {
+        "name": "functionSignature",
+        "type": "bytes",
+        "internalType": "bytes",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "OwnershipTransferred",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "SetFee",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "_oldFee",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "_newFee",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "SetFeeOwner",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "_oldFeeOwner",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      },
+      {
+        "name": "_newFeeOwner",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      }
+    ]
+  },
+  {
+    "name": "BASE_FEE",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "acceptedToken",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "buy",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_itemsToBuy",
+        "type": "tuple[]",
+        "internalType": "struct CollectionStore.ItemToBuy[]",
+        "components": [
+          {
+            "name": "collection",
+            "type": "address"
+          },
+          {
+            "name": "ids",
+            "type": "uint256[]"
+          },
+          {
+            "name": "prices",
+            "type": "uint256[]"
+          },
+          {
+            "name": "beneficiaries",
+            "type": "address[]"
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "domainSeparator",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "executeMetaTransaction",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "userAddress",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "functionSignature",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "sigR",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "sigS",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "sigV",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "fee",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "feeOwner",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "getChainId",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "name": "getItemBuyData",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_collection",
+        "type": "address",
+        "internalType": "contract IERC721CollectionV2"
+      },
+      {
+        "name": "_itemId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "getNonce",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "nonce",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "owner",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "renounceOwnership",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "setFee",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_newFee",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "setFeeOwner",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_newFeeOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "transferOwnership",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+]

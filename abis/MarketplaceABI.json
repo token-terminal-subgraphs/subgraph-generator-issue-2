@@ -1,0 +1,794 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_feesCollector",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_acceptedToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_royaltiesManager",
+        "type": "address",
+        "internalType": "contract IRoyaltiesManager"
+      },
+      {
+        "name": "_feesCollectorCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_royaltiesCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": false,
+    "name": "ChangedFeesCollectorCutPerMillion",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "feesCollectorCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "ChangedPublicationFee",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "publicationFee",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "ChangedRoyaltiesCutPerMillion",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "royaltiesCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "FeesCollectorSet",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "oldFeesCollector",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      },
+      {
+        "name": "newFeesCollector",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "MetaTransactionExecuted",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "userAddress",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      },
+      {
+        "name": "relayerAddress",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      },
+      {
+        "name": "functionSignature",
+        "type": "bytes",
+        "internalType": "bytes",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "OrderCancelled",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "bytes32",
+        "internalType": "bytes32",
+        "indexed": false
+      },
+      {
+        "name": "assetId",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "seller",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      },
+      {
+        "name": "nftAddress",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "OrderCreated",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "bytes32",
+        "internalType": "bytes32",
+        "indexed": false
+      },
+      {
+        "name": "assetId",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "seller",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      },
+      {
+        "name": "nftAddress",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      },
+      {
+        "name": "priceInWei",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "expiresAt",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "OrderSuccessful",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "bytes32",
+        "internalType": "bytes32",
+        "indexed": false
+      },
+      {
+        "name": "assetId",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "seller",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      },
+      {
+        "name": "nftAddress",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      },
+      {
+        "name": "totalPrice",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "buyer",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "OwnershipTransferred",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address",
+        "indexed": true
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "Paused",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "RoyaltiesManagerSet",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "oldRoyaltiesManager",
+        "type": "address",
+        "internalType": "contract IRoyaltiesManager",
+        "indexed": true
+      },
+      {
+        "name": "newRoyaltiesManager",
+        "type": "address",
+        "internalType": "contract IRoyaltiesManager",
+        "indexed": true
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "name": "Unpaused",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "name": "ERC721_Interface",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes4"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "InterfaceId_ValidateFingerprint",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes4"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "acceptedToken",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "cancelOrder",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "nftAddress",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "assetId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "createOrder",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "nftAddress",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "assetId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "priceInWei",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "expiresAt",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "domainSeparator",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "executeMetaTransaction",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "userAddress",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "functionSignature",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "sigR",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "sigS",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "sigV",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "executeOrder",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "nftAddress",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "assetId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "feesCollector",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "feesCollectorCutPerMillion",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "getChainId",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "getNonce",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "nonce",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "orderByAssetId",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
+        "name": "seller",
+        "type": "address"
+      },
+      {
+        "name": "nftAddress",
+        "type": "address"
+      },
+      {
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "name": "expiresAt",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "owner",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "paused",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "publicationFeeInWei",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "renounceOwnership",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "royaltiesCutPerMillion",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "royaltiesManager",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "safeExecuteOrder",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "nftAddress",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "assetId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "fingerprint",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "setFeesCollector",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_newFeesCollector",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "setFeesCollectorCutPerMillion",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_feesCollectorCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "setPublicationFee",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_publicationFee",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "setRoyaltiesCutPerMillion",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_royaltiesCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "setRoyaltiesManager",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_newRoyaltiesManager",
+        "type": "address",
+        "internalType": "contract IRoyaltiesManager"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "transferOwnership",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_acceptedToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_ownerCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_owner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": false,
+    "name": "ChangedOwnerCutPerMillion",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "ownerCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "name": "acceptedToken",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "ownerCutPerMillion",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "setOwnerCutPerMillion",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_ownerCutPerMillion",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+]
